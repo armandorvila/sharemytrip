@@ -1,0 +1,103 @@
+<article xmlns:th="http://www.thymeleaf.org"
+	th:fragment="evaluatePromotor">
+
+	<h2 th:text="#{califications.evaluatePromotor}"></h2>
+
+	<form th:object="${calification}" action="#"
+		th:action="@{/evaluatePromotor}" method="post">
+
+		<fieldset id="user-details">
+			<dl>
+				<dt th:text="#{califications.name}"></dt>
+				<dd>
+					<input type="text" readonly="readonly" th:value="${promotor.name}" />
+					<input type="hidden" name="tripId" th:value="${trip.id}" />
+				</dd>
+				<dt>
+					<label for="score" th:text="#{califications.score}"></label>
+				</dt>
+				<dd>
+					<input type="number"  value="" placeholder="Score"
+						required="required" autofocus="autofocus" th:field="*{puntuation}" />
+					<p th:if="${#fields.hasErrors('puntuation')}"
+						th:errors="*{puntuation}"></p>
+				</dd>
+				<dt>
+					<label for="comments" th:text="#{califications.comments}"></label>
+				</dt>
+				<dd>
+					<textarea th:field="*{comments}"></textarea>
+					<p th:if="${#fields.hasErrors('comments')}" th:errors="*{comments}"></p>
+				</dd>
+				<dt>
+					<input type="submit" value="Submit" name="submit" class="submit" />
+				</dt>
+			</dl>
+		</fieldset>
+
+	</form>
+
+</article>
+
+<article xmlns:th="http://www.thymeleaf.org"
+	th:fragment="evaluateTravelers">
+
+	<h2 th:text="#{califications.evaluateTravelers}"></h2>
+
+	<form action="#" th:action="@{/selectTraveler}" method="post" th:each="traveler,iterStat : ${travelers}">
+
+		<fieldset  id="user-details">
+
+			<input type="hidden" name="travelerId" th:value="${traveler.id}" />
+			<input type="hidden" name="tripId" th:value="${trip.id}" /> <span
+				th:text="${traveler.name}"></span> <input type="submit"
+				value="Evaluate" name="submit" class="submit" />
+		</fieldset>
+
+	</form>
+</article>
+
+
+<article xmlns:th="http://www.thymeleaf.org"
+	th:fragment="evaluateTraveler">
+
+	<h2 th:text="#{califications.evaluateTraveler}"></h2>
+
+	<form action="#" th:action="@{/evaluateTraveler}" th:object="${calification}" 
+	method="post">
+
+		<input type="hidden" name="tripId" th:value="${trip.id}" /> <input
+			type="hidden" name="travelerId" th:value="${traveler.id}" />
+
+		<fieldset id="user-details">
+			<dl>
+				<dt th:text="#{califications.name}"></dt>
+				<dd>
+					<input type="text" readonly="readonly" th:value="${traveler.name}" />
+				</dd>
+				<dt>
+					<label for="score" th:text="#{califications.score}"></label>
+				</dt>
+				<dd>
+					<input type="number"  value="" placeholder="Score"
+						required="required" autofocus="autofocus" th:field="*{puntuation}" />
+
+					<p th:if="${#fields.hasErrors('puntuation')}"
+						th:errors="*{puntuation}">Incorrect departure place.</p>
+				</dd>
+				<dt>
+					<label for="comments" th:text="#{califications.comments}"></label>
+				</dt>
+				<dd>
+					<textarea id="comments" th:field="*{comments}"></textarea>
+					<p th:if="${#fields.hasErrors('comments')}"
+						th:errors="*{comments}">Incorrect departure place.</p>
+				</dd>
+				<dt>
+					<input type="submit" value="Submit" name="submit" class="submit" />
+				</dt>
+			</dl>
+		</fieldset>
+
+	</form>
+</article>

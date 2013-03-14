@@ -1,0 +1,92 @@
+
+<article class="myTripsSection" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="promoteTrip">
+	<div>
+	<h3 th:text="#{myTrips.promoteTrip.h3}"></h3>
+	<a class="myTripsSectionLinkButton" th:href="@{/newTrip}" th:text="#{myTrips.promoteTrip}"></a>
+	</div>
+</article>
+
+<!-- ************************************************************************** -->
+<!-- ************************************************************************** -->
+
+<article class="myTripsSection" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="promotedTrips">
+
+	<h3 th:text="#{myTrips.promotedTrips.h3}"></h3>
+
+	<table class="tripsTable">
+		<thead>
+			<tr>
+				<th scope="col" th:text="#{trips.name}"></th>
+				<th scope="col" th:text="#{trips.promoter}"></th>
+				<th scope="col" th:text="#{trips.startPoint}"></th>
+				<th scope="col" th:text="#{trips.destiny}"></th>
+				<th scope="col" th:text="#{trips.details}"></th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody th:if="${not #lists.isEmpty(promotedTrips)}">
+			<tr th:each="trip,iterStat : ${promotedTrips}"
+				th:class="${iterStat.odd}? 'odd'">
+				<td th:text="${trip.name}"></td>
+				<td th:text="${trip.promotor.name}"></td>
+				<td th:text="${trip.startPoint.name}"></td>
+				<td th:text="${trip.destiny.name}"></td>
+				<td><a href="details" th:href="@{/details(tripId=${trip.id})}"><span
+						th:text="#{trips.details}"></span></a></td>
+			</tr>
+		</tbody>
+		<tbody th:if="${#lists.isEmpty(promotedTrips)}">
+			<tr>
+				<td></td>
+				<td th:text="#{there.is}"></td>
+				<td th:text="#{not.results}"></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</article>
+
+<!-- ************************************************************************** -->
+<!-- ************************************************************************** -->
+
+<article class="myTripsSection" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="joinedTrips">
+
+	<h3 th:text="#{myTrips.joinedTrips}"></h3>
+
+	<table class="tripsTable">
+		<thead>
+			<tr>
+				<th scope="col" th:text="#{trips.name}"></th>
+				<th scope="col" th:text="#{trips.promoter}"></th>
+				<th scope="col" th:text="#{trips.startPoint}"></th>
+				<th scope="col" th:text="#{trips.destiny}"></th>
+				<th scope="col" th:text="#{trips.details}"></th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody th:if="${not #lists.isEmpty(joinedTrips)}">
+			<tr th:each="trip,iterStat : ${joinedTrips}"
+				th:class="${iterStat.odd}? 'odd'">
+				<td th:text="${trip.name}"></td>
+				<td th:text="${trip.promotor.name}"></td>
+				<td th:text="${trip.startPoint.name}"></td>
+				<td th:text="${trip.destiny.name}"></td>
+				<td><a href="details" th:href="@{/details(tripId=${trip.id})}"><span
+						th:text="#{trips.details}"></span></a></td>
+			</tr>
+		</tbody>
+		<tbody th:if="${#lists.isEmpty(joinedTrips)}">
+			<tr>
+				<td></td>
+				<td th:text="#{there.is}"></td>
+				<td th:text="#{not.results}"></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</article>

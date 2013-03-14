@@ -1,0 +1,38 @@
+<article xmlns:th="http://www.thymeleaf.org" th:fragment="history">
+
+	<h2 th:text="#{history.h2}"></h2>
+	<h3 th:text="${traveler.name}"></h3>
+
+
+	<table class="tripsTable">
+		<thead>
+			<tr>
+				<th scope="col" th:text="#{history.trip.name}"></th>
+				<th scope="col" th:text="#{history.trip.destiny}"></th>
+				<th scope="col" th:text="#{history.trip.promoter}"></th>
+				<th scope="col" th:text="#{history.trip.score}"></th>
+				<th scope="col" th:text="#{history.trip.comments}"></th>
+			</tr>
+		</thead>
+		<tbody th:if="${not #lists.isEmpty(califications)}">
+			<tr th:each="cal,iterStat : ${califications}"
+				th:class="${iterStat.odd}? 'odd'">
+				<td th:text="${cal.trip.name}"></td>
+				<td th:text="${cal.trip.destiny.name}"></td>
+				<td th:text="${cal.trip.promotor.name}"></td>
+				<td th:text="${cal.puntuation}"></td>
+				<td th:text="${cal.comments}"></td>
+			</tr>
+		</tbody>
+		<tbody th:if="${#lists.isEmpty(califications)}">
+			<tr>
+				<td></td>
+				<td th:text="#{there.is}"></td>
+				<td th:text="#{not.results}"></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+
+</article>

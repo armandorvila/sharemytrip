@@ -1,0 +1,31 @@
+
+<article xmlns:th="http://www.thymeleaf.org" th:fragment="contactForm">
+
+	<form id="singupForm" action="#" th:action="@{/sendMessage}"
+		method="post">
+
+		<fieldset id="user-details">
+
+			<label for="name" th:text="#{contact.name}"></label> 
+			<input type="text" name="name"
+				value="" id="name" placeholder="Your Name" required="required"
+				autofocus="autofocus" th:value="${name}" /> 
+			
+			<label for="lastname" th:text="#{contact.lastname}">
+			</label> <input type="text" name="lastname" value="" id="name"
+				placeholder="Your Lastname" required="required"
+				autofocus="autofocus" th:value="${lastname}" /> 
+				
+			<label for="email" th:text="#{contact.email}">
+			</label> <input type="email" name="email" value="" id="email"
+				placeholder="mail@email.com" required="required" th:value="${email}" />
+
+			<label for="message" th:text="#{contact.message}"></label>
+			<textarea name="message" id="message" placeholder="Message"></textarea>
+
+
+			<input type="submit" value="Submit" name="submit" class="submit" />
+		</fieldset>
+
+	</form>
+</article>

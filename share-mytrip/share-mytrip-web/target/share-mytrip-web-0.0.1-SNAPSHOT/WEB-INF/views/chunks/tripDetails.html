@@ -1,0 +1,55 @@
+<article xmlns:th="http://www.thymeleaf.org" th:fragment="tripDetails">
+
+	<h2>Trip Details</h2>
+
+	<dl class="table-display">
+		<dt th:text="#{trip.details.name}"></dt>
+		<dd th:text="${trip.name}"></dd>
+		
+		<dt th:text="#{trip.details.promoter}"></dt>
+		<dd ><a href="history" th:href="@{/history(travelerId=${trip.promotor.id})}" th:text="${trip.promotor.name}">(History)</a></dd>
+		
+		<dt th:text="#{trip.details.description}" ></dt>
+		<dd th:text="${trip.description}"></dd>
+		
+		<dt th:text="#{trip.details.destiny}"></dt>
+		<dd th:text="${trip.destiny.name}"></dd>
+		
+		<dt th:text="#{trip.details.deadline}"></dt>
+		<dd th:text="${trip.deadline}"></dd>
+		
+		<dt th:text="#{trip.details.startPoint}"></dt>
+		<dd th:text="${trip.startPoint.name}"></dd>
+		
+		<dt th:text="#{trip.details.meetingPoint}"></dt>
+		<dd th:text="${trip.meetingPoint.name}"></dd>
+		
+		<dt th:text="#{trip.details.price}"></dt>
+		<dd th:text="${trip.price.price}"></dd>
+		
+		<dt th:text="#{trip.details.price.comments}"></dt>
+		<dd th:text="${trip.price.comments}"></dd>
+		
+		<dt th:text="#{trip.details.duration}"></dt>
+		<dd th:text="${trip.duration}"></dd>
+
+	</dl>
+
+	<h2 th:text="#{trip.details.travelers}"></h2>
+	<dl class="table-display">
+	 <!-- Sorry for this: TODO to become valid.-->
+		<div th:each="traveler,iterStat : ${travelers}">
+			<dt th:text="${traveler.name}"></dt>
+			<dd>
+				<a href="history" th:href="@{/history(travelerId=${traveler.id})}" th:text="#{trip.details.history}"></a>
+			</dd>
+
+		</div>
+	</dl>
+
+	<a class="linkButton" th:if="${canJoin}" href="details"
+		th:href="@{/joinToTrip(tripId=${trip.id})}" th:text="#{trip.details.join}"></a> <a class="linkButton"
+		th:if="${canEvaluate}" href="details"
+		th:href="@{/evaluateTrip(tripId=${trip.id})}" th:text="#{trip.details.evaluate}"></a>
+
+</article>

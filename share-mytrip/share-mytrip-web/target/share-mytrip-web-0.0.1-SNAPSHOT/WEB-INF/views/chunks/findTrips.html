@@ -1,0 +1,88 @@
+
+<!-- ********************* Search Form ***************************** -->
+
+<article xmlns:th="http://www.thymeleaf.org"
+	th:fragment="findSearchForm">
+	<script>
+		$(function() {
+			$("#startPoint").autocomplete({
+				source : "getPlaces",
+				minLength : 1,
+			});
+			$("#destiny").autocomplete({
+				source : "getPlaces",
+				minLength : 1,
+			});
+			$("#promoter").autocomplete({
+				source : "getTravelers",
+				minLength : 1,
+			});
+		});
+	</script>
+	<h2 th:text="#{findTrips.h2}"></h2>
+	<form id="findTripsForm" th:action="@{/find}" method="post">
+
+		<fieldset id="user-details">
+			<dl>
+				<dt th:text="#{findTrips.promoter}"></dt>
+				<dd>
+					<input id="promoter" type="text" name="promotor.name" />
+				</dd>
+				<dt th:text="#{findTrips.destiny}"></dt>
+				<dd>
+					<input id="destiny" type="text" name="destiny.name" />
+				</dd>
+				<dt th:text="#{findTrips.startPoint}"></dt>
+				<dd>
+					<input id="startPoint" type="text" name="startPoint.name" />
+				</dd>
+				<dt th:text="#{findTrips.price}"></dt>
+				<dd>
+					<input type="number" name="price.price" />
+				</dd>
+				<dt>
+					<input type="submit" value="Find" />
+				</dt>
+			</dl>
+
+		</fieldset>
+	</form>
+
+
+	<h2>
+		<span th:text="#{trips.h2}"></span>
+	</h2>
+
+	<table class="tripsTable">
+		<thead>
+			<tr>
+				<th scope="col" th:text="#{trips.name}"></th>
+				<th scope="col" th:text="#{trips.promoter}"></th>
+				<th scope="col" th:text="#{trips.startPoint}"></th>
+				<th scope="col" th:text="#{trips.destiny}"></th>
+				<th scope="col" th:text="#{trips.details}"></th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody th:if="${not #lists.isEmpty(results)}">
+			<tr th:each="trip,iterStat : ${results}"
+				th:class="${iterStat.odd}? 'odd'">
+				<td th:text="${trip.name}"></td>
+				<td th:text="${trip.promotor.name}"></td>
+				<td th:text="${trip.startPoint.name}"></td>
+				<td th:text="${trip.destiny.name}"></td>
+				<td><a href="details" th:href="@{/details(tripId=${trip.id})}"><span
+						th:text="#{trips.details}"></span></a></td>
+			</tr>
+		</tbody>
+		<tbody th:if="${#lists.isEmpty(results)}">
+			<tr>
+				<td></td>
+				<td th:text="#{there.is}"></td>
+				<td th:text="#{not.results}"></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</article>

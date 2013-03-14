@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <traveler id="75" email="armando.ramirez.vila@gmail.com" lastname="Ram&#237;rez" name="Armando"/>
+  <traveler id="111" email="062a9adb-ed96-4e85-80f9-da1ace3331e3@gmail.com" lastname="Perez" name="Albero"/>
+  <traveler id="120" email="dc98f6a5-fcc0-431b-9f4a-9294da7f4c30" lastname="Fernandez Lanvin" name="Daniel"/>
+  <traveler id="122" email="fe77b78d-e094-47c2-add1-28275ea7cb5a@gmail.com" lastname="Mariano" name="Rajoy"/>
+  <credentials id="76" password="secret" role="ROLE_TRAVELER" username="armandorv" traveler_id="75"/>
+  <credentials id="112" password="secret" role="ROLE_TRAVELER" username="32e073b3-b180-4942-a5db-6353567c6c76" traveler_id="111"/>
+  <credentials id="121" password="secret" role="ROLE_TRAVELER" username="juanvr" traveler_id="120"/>
+  <place id="69" name="Madrid"/>
+  <place id="70" name="Oviedo"/>
+  <place id="91" name="Alaska"/>
+  <place id="117" name="Angola"/>
+  <place id="118" name="Cangas"/>
+  <place id="144" name="Chile"/>
+  <trip id="115" deadline="2020-09-22" description="A trip to take a lokk of all wonderful things of San diego." duration="4" name="Trip To San Diego" comments="No comments" price="29.0" destiny_id="69" meetingpoint_id="70" startpoint_id="70"/>
+  <trip id="116" deadline="2020-09-22" description="A trip to take a lokk of all wonderful things of San diego." duration="4" name="Trip To San Diego" comments="No comments" price="29.0" destiny_id="69" meetingpoint_id="70" startpoint_id="70"/>
+  <trip id="119" deadline="2014-05-12" description="A trip to cllaborate with childs." duration="5" name="Trip to Angola" comments="Euros." price="1000.0" destiny_id="117" meetingpoint_id="118" startpoint_id="70"/>
+  <trip id="139" deadline="2020-09-22" description="A trip to take a lokk of all wonderful things of San diego." duration="4" name="Trip To San Diego" comments="No comments" price="29.0" destiny_id="69" meetingpoint_id="70" startpoint_id="70"/>
+  <trip id="140" deadline="2020-09-22" description="A trip to take a lokk of all wonderful things of San diego." duration="4" name="Trip To San Diego" comments="No comments" price="29.0" destiny_id="69" meetingpoint_id="70" startpoint_id="70"/>
+  <trip id="145" deadline="2020-09-22" description="A trip to take a lokk of all wonderful things of Paris." duration="4" name="Trip To Chile" comments="No comments" price="29.0" destiny_id="144" meetingpoint_id="69" startpoint_id="70"/>
+  <joined_trips traveler_id="120" joinedtrips_id="140"/>
+  <joined_trips traveler_id="75" joinedtrips_id="116"/>
+  <promoted_trips traveler_id="75" promotedtrips_id="140"/>
+  <promoted_trips traveler_id="75" promotedtrips_id="145"/>
+  <trip_costs/>
+  <calification id="185" puntuation="3" comments="A fuking trip" calificated_id="75" calificator_id="120" trip_id="140"/>
+</dataset>

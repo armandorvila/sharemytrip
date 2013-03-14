@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cloud="http://schema.cloudfoundry.org/spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://schema.cloudfoundry.org/spring
+        http://schema.cloudfoundry.org/spring/cloudfoundry-spring.xsd">
+
+	<bean id="persistenceConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:datasource.properties</value>
+			</list>
+		</property>
+		<property name="placeholderPrefix" value="props{"/>
+	</bean>
+
+<!--    	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="props{bbdd.driver.name}" />
+		<property name="url" value="props{bbdd.url}" />
+		<property name="username" value="props{bbdd.user}" />
+		<property name="password" value="props{bbdd.pass}" />
+	</bean> -->
+
+	<cloud:data-source id="dataSource" />
+
+ 	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="generateDdl" value="true" />
+			</bean>
+		</property>
+		<property name="persistenceUnitName" value="share-mytrip" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+</beans>

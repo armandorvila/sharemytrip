@@ -1,0 +1,8 @@
+<article xmlns:th="http://www.thymeleaf.org"
+	th:fragment="loguedUserInfo" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<h3 th:text="#{logout.h3}"></h3>
+<span sec:authentication="name"></span>  
+
+<a href="#" th:href="@{/logout}" th:text="#{logout}">Logout</a>
+</article>

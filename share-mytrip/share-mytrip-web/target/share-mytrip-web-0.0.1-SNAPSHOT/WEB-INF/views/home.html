@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:substituteby="chunks/head::head"></div>
+
+<body>
+	<div id="wrapper">
+
+		<div th:substituteby="chunks/header::header"></div>
+		<div th:substituteby="chunks/nav::nav"></div>
+
+		<section id="main">
+
+			<section id="content">
+
+				<div th:substituteby="chunks/trips::trips"></div>
+
+			</section>
+
+			<div th:substituteby="chunks/aside::aside"></div>
+
+		</section>
+
+		<div th:substituteby="chunks/footer :: footer"></div>
+
+	</div>
+
+</body>
+
+</html>

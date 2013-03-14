@@ -1,0 +1,8 @@
+-This code has been repackaged from another project to avoid problems of dependency 
+ resolution against a private repository.
+
+-I am the author of all code of the original project : c1nn-test-utils,
+ however the code is only an utility, not the subject of this exercise.
+ 
+ -Original project include tests an a maven profile to generate a qualified dependency,
+  based on spring shell that generate a cli tool to execute db unit exports and imports. 

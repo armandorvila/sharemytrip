@@ -1,0 +1,27 @@
+<article xmlns:th="http://www.thymeleaf.org" th:fragment="loginForm">
+
+	<h3>Sing in</h3>
+
+	<form action="#" th:action="@{/login}" method="post">
+
+		<fieldset id="user-details">
+
+			<label for="username" th:text="#{login.username}"></label>
+			<input type="text" name="j_username" value="" id="username" 
+			placeholder="Username" required="required" />
+			
+			<label for="password" th:text="#{login.password}"></label>
+			<input type="password" name="j_password" value="" id="password" 
+			placeholder="password" required="required"  />
+			
+			<input type="submit" value="Submit" name="submit"
+				class="submit" />
+		</fieldset>
+
+	</form>
+	
+	
+	<a href="singup">Sing up</a>
+
+</article>
+

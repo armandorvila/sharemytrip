@@ -1,0 +1,464 @@
+/* Created by http://freehtml5templates.com */
+
+/* reset */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* render html5 elements as block */
+header,footer,section,aside,nav,article {
+	display: block;
+}
+
+body {
+	line-height: 1;
+	background: #0A67A2;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #333;
+	font-size: 14px;
+	line-height: 18px;
+}
+
+/* layout */
+#wrapper {
+	width: 940px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 3px solid #888;
+	background: #fff;
+	/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+nav {
+	width: 940px;
+	height: 50px;
+	margin: 0 auto;
+	background: #D5EBF9;
+	margin-top: -5px;
+}
+
+#main {
+	width: 940px;
+	margin: 0 auto;
+	padding-top: 30px;
+	background: #FFF url(images/colbg.png) repeat-y;
+	overflow: hidden;
+}
+
+#content {
+	float: left;
+	margin-left: 4%;
+	width: 60%;
+}
+
+#sidebar {
+	float: right;
+	padding-left: 20px;
+	width: 300px;
+	margin-top: 5.5%;
+}
+
+footer {
+	width: 940px;
+	margin: 0 auto;
+	clear: both;
+}
+
+/* basics */
+h1,h2,h3,h4,h5,h6 {
+	font-weight: bold;
+	clear: both;
+}
+
+a:link,a:visited {
+	color: #333;
+}
+
+a:hover,a:active {
+	color: #0A67A2;
+}
+
+p {
+	margin-bottom: 18px;
+}
+
+li {
+	padding-left: 5px;
+}
+
+/* nav */
+nav .menu {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+nav .menu ul {
+	margin: 0;
+	padding: 17px 0 0 20px;
+	list-style: none;
+	line-height: normal;
+}
+
+nav .menu li {
+	display: block;
+	float: left;
+}
+
+nav .menu a {
+	display: block;
+	float: left;
+	margin-right: 5px;
+	padding: 0px 15px;
+	text-decoration: none;
+	color: #000;
+}
+
+nav .menu a:hover {
+	text-decoration: underline;
+}
+
+/** HEADER */
+header {
+	padding: 20px 0 0 0;
+}
+
+header>h1 {
+	float: left;
+	margin: 0 0 18px 10px;
+	width: 600px;
+	font-size: 40px;
+	line-height: 36px;
+}
+
+header>h1 a:link,a:visited {
+	color: #0A67A2;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 0px 2px 3px #555;
+}
+
+header>h2 {
+	color: #777;
+	clear: right;
+	float: right;
+	font-style: italic;
+	font-size: 14px;
+	margin: 14px 10px 18px 0;
+}
+
+/** ARTICLES **/
+article img {
+	border: none;
+	-webkit-box-shadow: 3px 3px 7px #777;
+	-moz-box-shadow: 3px 3px 7px #777;
+}
+
+#content p,ul,ol,hr {
+	margin-bottom: 24px;
+}
+
+#content ul ul,ol ol,ul ol,ol ul {
+	margin-bottom: 0;
+}
+
+#content h1,h2,h3,h4,h5,h6 {
+	color: #0A67A2;
+	margin: 0 0 20px 0;
+	line-height: 1.5em;
+}
+
+.alignleft,img.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 10px;
+}
+
+.alignright,img.alignright {
+	display: inline;
+	float: right;
+	margin-left: 10px;
+}
+
+.aligncenter,img.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* sidebar and footer widget blocks */
+aside article h3 {
+	font-size: 18px;
+	color: #0A67A2;
+}
+
+aside article ul {
+	list-style: none;
+	color: #bbb;
+}
+
+aside article ul li {
+	margin-bottom: 10%;
+}
+
+#footer-area {
+	background: #D5EBF9;
+	color: #000;
+	font-size: 90%;
+	padding: 18px 0;
+	padding-bottom: 4%;
+	overflow: hidden;
+	/* curved border radius */
+	-moz-border-radius-bottomright: 8px;
+	-moz-border-radius-bottomleft: 8px;
+	-webkit-border-bottom-left-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+}
+
+.footer-segment {
+	float: left;
+	margin-right: 20px;
+	margin-left: 20px;
+	width: 190px;
+}
+
+footer aside h4 {
+	color: #0A67A2;
+	font-size: 16px;
+	line-height: 1.5em;
+}
+
+footer ul {
+	list-style: none;
+	margin: -15px 0;
+}
+
+footer a:link,footer a:visited {
+	color: #333;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+footer p {
+	margin-top: -15px;
+	color: #000;
+}
+
+/*Form*/
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+
+#user-details {
+	float: left;
+	width: 230px;
+}
+
+#user-message {
+	float: right;
+	width: 405px;
+}
+
+#display-data {
+	float: left;
+	border: 1px solid #ddd;
+	padding: 30px 40px 20px 40px;
+	margin: 75px 0 0 0;
+	width: 715px;
+	background: #fff;
+	/* -- CSS3 - define rounded corners -- */
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	/* -- CSS3 - create a background gradient -- */
+	background: -webkit-gradient(linear, 0% 0%, 0% 40%, from(#EEE), to(#FFF)
+		);
+	background: -moz-linear-gradient(0% 40% 90deg, #FFF, #EEE);
+	/* -- CSS3 - add a drop shadow -- */
+	-webkit-box-shadow: 0px 0 50px #ccc;
+	-moz-box-shadow: 0px 0 50px #ccc;
+	box-shadow: 0px 0 50px #ccc;
+}
+
+#errors {
+	float: right;
+	border: solid 1px #E58E8E;
+	padding: 8px;
+	margin: 8px 0px 10px 50px;
+	display: block;
+	width: 405px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background: #FFE6E6 url(../img/cancel_48.png) no-repeat 370px center;
+}
+
+a
+:visited {
+	color: #551a8b;
+}
+
+a
+:focus {
+	outline: thin dotted;
+}
+
+aside article {
+
+	border: 1px solid #ddd;
+	padding: 2% 2% 4% 6%;
+	margin-bottom: 4%;
+	margin-right:4%;
+	width: 80%;
+	margin-right:20%;
+	background: #fff;
+	/* -- CSS3 - define rounded corners -- */
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	/* -- CSS3 - create a background gradient -- */
+	background: -webkit-gradient(linear, 0% 0%, 0% 40%, from(#EEE), to(#FFF)
+		);
+	background: -moz-linear-gradient(0% 40% 90deg, #FFF, #EEE);
+	/* -- CSS3 - add a drop shadow -- */
+	-webkit-box-shadow: 0px 0 50px #ccc;
+	-moz-box-shadow: 0px 0 50px #ccc;
+	box-shadow: 0px 0 50px #ccc;
+	margin-bottom: 6%;
+}
+
+aside article input {
+	width: 90%;
+}
+
+aside article input[type=submit]
+{
+	margin-right: 40%;
+}
+
+aside article a {
+	margin-top: 4%;
+}
+
+article {
+	width: 50%;
+}
+
+article dl {
+	float: left;
+	border: 1px solid #ddd;
+	padding: 10% 10% 10% 10%;
+	margin-bottom: 4%;
+	margin-left: 12%;
+	width: 200%;
+	background: #fff;
+	/* -- CSS3 - define rounded corners -- */
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	/* -- CSS3 - create a background gradient -- */
+	background: -webkit-gradient(linear, 0% 0%, 0% 40%, from(#EEE), to(#FFF)
+		);
+	background: -moz-linear-gradient(0% 40% 90deg, #FFF, #EEE);
+	/* -- CSS3 - add a drop shadow -- */
+	-webkit-box-shadow: 0px 0 50px #ccc;
+	-moz-box-shadow: 0px 0 50px #ccc;
+	box-shadow: 0px 0 50px #ccc;
+}
+
+.myTripsSection {
+	border: 1px solid #ddd;
+	padding: 2% 4% 2% 2%;
+	margin-bottom: 4%;
+	width: 90%;
+	background: #fff;
+	/* -- CSS3 - define rounded corners -- */
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	/* -- CSS3 - create a background gradient -- */
+	background: -webkit-gradient(linear, 0% 0%, 0% 40%, from(#EEE), to(#FFF)
+		);
+	background: -moz-linear-gradient(0% 40% 90deg, #FFF, #EEE);
+	/* -- CSS3 - add a drop shadow -- */
+	-webkit-box-shadow: 0px 0 50px #ccc;
+	-moz-box-shadow: 0px 0 50px #ccc;
+	box-shadow: 0px 0 50px #ccc;
+}
+
+.myTripsSectionLinkButton {
+	
+	padding: 8px 16px 8px 16px;
+	margin-top:20%;
+	margin-bottom:20%;
+	background: #fff;
+	width: 40%;
+	font-size: 14px;
+	color: #555;
+	border: 1px #ddd solid;
+	/* -- CSS3 Shadow - create a shadow around each input element -- */
+	-webkit-box-shadow: 0px 0px 4px #aaa;
+	-moz-box-shadow: 0px 0px 4px #aaa;
+	box-shadow: 0px 0px 4px #aaa;
+	/* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */
+	-webkit-transition: background 0.3s linear;
+	font-size: 100%;
+	vertical-align: baseline;
+	*vertical-align: middle;
+	text-decoration: none;
+}
+
+dl.table-display
+{
+	float: left;
+	width: 520px;
+	margin: 1em 0;
+	padding: 0;
+	border-bottom: 1px solid #999;
+}
+	
+.table-display dt
+{
+	clear: left;
+	float: left;
+	width: 200px;
+	margin: 0;
+	padding: 5px;
+	border-top: 1px solid #999;
+	font-weight: bold;
+}
+	
+.table-display dd
+{
+	float: left;
+	width: 300px;
+	margin: 0;
+	padding: 5px;
+	border-top: 1px solid #999;
+}
+
+.linkButton {
+	padding: 8px 16px 8px 16px;
+	margin-left:80%;
+	margin-top:20%;
+	background: #fff;
+	width: 200%;
+	font-size: 14px;
+	color: #555;
+	border: 1px #ddd solid;
+	/* -- CSS3 Shadow - create a shadow around each input element -- */
+	-webkit-box-shadow: 0px 0px 4px #aaa;
+	-moz-box-shadow: 0px 0px 4px #aaa;
+	box-shadow: 0px 0px 4px #aaa;
+	/* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */
+	-webkit-transition: background 0.3s linear;
+	
+	font-size: 100%;
+	vertical-align: baseline;
+	*vertical-align: middle;
+	text-decoration: none;
+}

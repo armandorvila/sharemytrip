@@ -1,0 +1,35 @@
+<article xmlns:th="http://www.thymeleaf.org" th:fragment="trips">
+
+	<h2>
+		<span th:text="#{trips.h2}"></span>
+	</h2>
+
+	<table class="tripsTable">
+		<thead>
+			<tr>
+				<th scope="col" th:text="#{trips.name}"></th>
+				<th scope="col" th:text="#{trips.promoter}"></th>
+				<th scope="col" th:text="#{trips.startPoint}"></th>
+				<th scope="col" th:text="#{trips.destiny}"></th>
+				<th scope="col" th:text="#{trips.details}"></th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody th:if="${not #lists.isEmpty(trips)}">
+			<tr th:each="trip,iterStat : ${trips}"
+				th:class="${iterStat.odd}? 'odd'">
+				<td th:text="${trip.name}"></td>
+				<td th:text="${trip.promotor.name}"></td>
+				<td th:text="${trip.startPoint.name}"></td>
+				<td th:text="${trip.destiny.name}"></td>
+				<td><a href="details" th:href="@{/details(tripId=${trip.id})}"><span
+						th:text="#{trips.details}"></span></a></td>
+			</tr>
+		</tbody>
+		<tbody th:if="${#lists.isEmpty(trips)}">
+			<tr>
+				<td></td><td th:text="#{there.is}"></td><td th:text="#{not.results}"></td><td></td>
+			</tr>
+		</tbody>
+	</table>
+</article>

@@ -1,0 +1,14 @@
+--- 
+applications: 
+- name: sharemytrip
+  framework: spring
+  runtime: java7
+  memory: 512M
+  instances: 1
+  url: sharemytrip.${target-base}
+  path: target/share-mytrip-web-0.0.1-SNAPSHOT
+  services: 
+    postgresql-sharemytrip: 
+      vendor: postgresql
+      version: "9.0"
+      tier: free

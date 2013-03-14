@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <place id="238" name="Cuenca"/>
+  <place id="239" name="Oviedo"/>
+  <place id="255" name="Salamanca"/>
+  <place id="259" name="Portugal"/>
+  <place id="262" name="Cadiz"/>
+  <traveler id="236" email="armando.ramirez.vila@gmail.com" lastname="Ram&#237;rez" name="Armando"/>
+  <traveler id="241" email="paula@sharemytrip.com" lastname="Rodriguez" name="Paula"/>
+  <traveler id="243" email="cases@gmail.com" lastname="Iglesias Cases" name="Juan"/>
+  <traveler id="245" email="isern@gmail.com" lastname="Isern" name="Saul"/>
+  <traveler id="247" email="usuario1@gmailcom" lastname="De pruebas" name="Usuario 1"/>
+  <traveler id="249" email="usuario2@gmail.com" lastname="De pruebas" name="Usuario2"/>
+  <traveler id="251" email="usuario3@gmail.com" lastname="De Pruebas" name="Usuario 3"/>
+  <traveler id="253" email="usuario4@gmail.com" lastname="De pruebas" name="Usuario 4"/>
+  <trip id="240" deadline="2013-06-01" description="Un viaje para probar el sistema,." duration="2" name="Viaje a cuenca" comments="El precio es en euros." price="20.0" destiny_id="238" meetingpoint_id="239" promotor_id="236" startpoint_id="239"/>
+  <trip id="256" deadline="2014-11-01" description="Viaje exigido en el enunciado del ejercicio." duration="4" name="Viaje para corregir" comments="El precio es en euros y se cobra al llegar." price="80.0" destiny_id="255" meetingpoint_id="239" promotor_id="247" startpoint_id="239"/>
+  <trip id="260" deadline="2014-04-01" description="Viaje a Portugal para ejecutar una beca Erasmus. " duration="4" name="Viaje a Portugal" comments="El precio es en euros a repartir. " price="500.0" destiny_id="259" meetingpoint_id="239" promotor_id="241" startpoint_id="239"/>
+  <trip id="263" deadline="2014-05-01" description="Viaje a Cadiz para descansar del trabajo." duration="2" name="Viaje a Cadiz" comments="Precio global." price="1250.0" destiny_id="262" meetingpoint_id="239" promotor_id="241" startpoint_id="239"/>
+  <calification id="257" comments="Es un buen promotor." puntuation="4" calificated_id="247" calificator_id="249" trip_id="256"/>
+  <calification id="258" comments="No tuvo un buen comportamiento." puntuation="4" calificated_id="247" calificator_id="236" trip_id="240"/>
+  <calification id="261" comments="Como promotor es lamentable." puntuation="2" calificated_id="236" calificator_id="241" trip_id="240"/>
+  <credentials id="237" password="secret" role="ROLE_TRAVELER" username="armandorv" traveler_id="236"/>
+  <credentials id="242" password="secret" role="ROLE_TRAVELER" username="paula" traveler_id="241"/>
+  <credentials id="244" password="secret" role="ROLE_TRAVELER" username="cases" traveler_id="243"/>
+  <credentials id="246" password="secret" role="ROLE_TRAVELER" username="isern" traveler_id="245"/>
+  <credentials id="248" password="usuario1" role="ROLE_TRAVELER" username="usuario1" traveler_id="247"/>
+  <credentials id="250" password="usuario2" role="ROLE_TRAVELER" username="usuario2" traveler_id="249"/>
+  <credentials id="252" password="usuario3" role="ROLE_TRAVELER" username="usuario3" traveler_id="251"/>
+  <credentials id="254" password="usuario4" role="ROLE_TRAVELER" username="usuario4" traveler_id="253"/>
+  <joined_trips travelers_id="247" joinedtrips_id="240"/>
+  <joined_trips travelers_id="249" joinedtrips_id="256"/>
+  <joined_trips travelers_id="241" joinedtrips_id="240"/>
+  <trip_costs trip_id="240" costs="COMBUSTIBLE"/>
+  <trip_costs trip_id="256" costs="COMBUSTIBLE"/>
+  <trip_costs trip_id="256" costs="DESGASTE"/>
+  <trip_costs trip_id="256" costs="PEAJES"/>
+  <trip_costs trip_id="260" costs="OTROS"/>
+  <trip_costs trip_id="260" costs="COMBUSTIBLE"/>
+  <trip_costs trip_id="260" costs="DESGASTE"/>
+  <trip_costs trip_id="260" costs="PEAJES"/>
+  <trip_costs trip_id="263" costs="COMBUSTIBLE"/>
+  <trip_costs trip_id="263" costs="DESGASTE"/>
+  <trip_costs trip_id="263" costs="PEAJES"/>
+</dataset>

@@ -1,0 +1,45 @@
+
+<article xmlns:th="http://www.thymeleaf.org" th:fragment="singupForm">
+
+	<form id="singupForm" action="#" th:object="${traveler}" th:action="@{/newTraveler}"
+		method="post">
+
+		<fieldset id="user-details">
+
+			<label for="name" th:text="#{singup.name}"></label> 
+			<input type="text" value="" placeholder="Your Name"
+				autofocus="autofocus" th:field="*{name}" required="required"/>
+			<p th:if="${#fields.hasErrors('name')}"
+						th:errors="*{name}"></p>
+				
+			<label for="lastname" th:text="#{singup.lastname}"></label> 
+			<input type="text" placeholder="Your Lastname"
+				 autofocus="autofocus" th:field="*{lastname}" />
+			<p th:if="${#fields.hasErrors('lastname')}"
+						th:errors="*{lastname}"></p>
+			
+			<label for="email" th:text="#{singup.email}"></label> 
+			<input type="email"  value="" 
+			placeholder="mail@email.com" required="required" th:field="*{email}" />
+			<p th:if="${#fields.hasErrors('email')}"
+						th:errors="*{email}"></p>
+
+			<label for="username" th:text="#{singup.username}"></label>
+			<input type="text" name="username" value="" id="username" 
+			placeholder="Username" required="required" />
+			
+			<label for="password" th:text="#{singup.password}"></label>
+			<input type="password" value="" id="password"  name="password"
+			placeholder="password" required="required"  />
+			
+			
+			<label for="passwordConfirmation" th:text="#{singup.passwordConfirmation}"></label>
+			<input type="password" name="passwordConfirmation" value="" id="passwordConfirmation" 
+			placeholder="Repeat the password" required="required"  />
+
+			<input type="submit" value="Submit" name="submit"
+				class="submit" />
+		</fieldset>
+
+	</form>
+</article>

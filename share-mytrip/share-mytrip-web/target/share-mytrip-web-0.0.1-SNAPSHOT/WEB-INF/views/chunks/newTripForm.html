@@ -1,0 +1,122 @@
+
+<article xmlns:th="http://www.thymeleaf.org" th:fragment="newTripForm">
+
+	<form th:object="${trip}" action="#" th:action="@{/promote}"
+		method="post">
+
+		<fieldset id="user-details">
+			<dl>
+				<dt>
+					<label for="name">Name: </label>
+				</dt>
+				<dd>
+					<input type="text" name="name" placeholder="Your Name"
+						required="required" autofocus="autofocus" th:field="*{name}" />
+				</dd>
+
+				<dt>
+					<label for="description">Description: </label>
+				</dt>
+				<dd>
+					<textarea th:field="*{description}"
+						placeholder="Introduce your description"></textarea>
+					<p th:if="${#fields.hasErrors('description')}"
+						th:errors="*{description}"></p>
+				</dd>
+
+				<dt>
+					<label for="destiny">Destiny:</label>
+				</dt>
+				<dd>
+					<input type="text" value="" placeholder="Destiny"
+						autofocus="autofocus" th:field="*{destiny.name}" />
+					<p th:if="${#fields.hasErrors('destiny.name')}" th:errors="*{destiny}"></p>
+				</dd>
+
+				<dt>
+					<label for="price">Costs:</label>
+				</dt>
+				<dd>
+					<div>
+						<div class="costs">
+							Peajes<input type="checkbox" name="peajes" value="PEAJES" />
+						</div>
+
+						<div class="costs">
+							Desgaste<input type="checkbox" name="desgaste" value="DESGASTE" />
+						</div>
+					</div>
+					<div>
+						<div class="costs">
+							Combustible<input type="checkbox" name="combustible"
+								value="COMBUSTIBLE" />
+						</div>
+						<div class="costs">
+							Otros<input type="checkbox" name="otros" value="OTROS" />
+						</div>
+					</div>
+				</dd>
+
+				<dt>
+					<label for="price">Price:</label>
+				</dt>
+				<dd>
+					<input type="number" value="" placeholder="Price"
+						required="required" autofocus="autofocus"
+						th:field="*{price.price}" />
+					<p th:if="${#fields.hasErrors('price.price')}"
+						th:errors="*{price.price}"></p>
+
+					<textarea th:field="*{price.comments}"
+						placeholder="Introduce any comment about the price"></textarea>
+					<p th:if="${#fields.hasErrors('price.comments')}"
+						th:errors="*{price.comments}"></p>
+				</dd>
+
+				<dt>
+					<label for="duration">Duration:</label>
+				</dt>
+				<dd>
+					<input type="number" value="" placeholder="Duration"
+						required="required" autofocus="autofocus" th:field="*{duration}" />
+					<p th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}"></p>
+
+				</dd>
+				<dt>
+					<label for="deadline">Deadline:</label>
+				</dt>
+				<dd>
+					<input type="text" name="deadline" id="deadline"
+						placeholder="dd/MM/yyyy" required="required"
+						th:field="*{deadline}" />
+					<p th:if="${#fields.hasErrors('deadline')}" th:errors="*{deadline}"></p>
+				</dd>
+				<dt>
+					<label for="departurePoint">Departure Point:</label>
+				</dt>
+				<dd>
+					<input type="text" value=""
+						placeholder="startPoint" autofocus="autofocus"
+						th:field="*{startPoint.name}" />
+					<p th:if="${#fields.hasErrors('startPoint.name')}"
+						th:errors="*{startPoint.name}">Incorrect departure place.</p>
+				</dd>
+				<dt>
+					<label for="meetingPoint">Meeting Point:</label>
+				</dt>
+				<dd>
+					<input type="text" id="meetingPoint" name="meetingPoint" value=""
+						placeholder="meetingPoint" required="required"
+						autofocus="autofocus" th:field="*{meetingPoint.name}" />
+					<p th:if="${#fields.hasErrors('meetingPoint.name')}"
+						th:errors="*{startPoint.name}">Incorrect departure place.</p>
+				</dd>
+
+				<dt>
+					<input type="submit" value="Submit" name="submit" class="submit" />
+				</dt>
+			</dl>
+		</fieldset>
+
+	</form>
+</article>

@@ -1,0 +1,35 @@
+<aside id="sidebar" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="aside"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+	<div sec:authorize="hasRole('ROLE_ANONYMOUS')">
+		<div th:substituteby="chunks/loginForm::loginForm"></div>
+	</div>
+	
+	<div sec:authorize="hasRole('ROLE_TRAVELER')">
+		<div th:substituteby="chunks/loguedUserInfo::loguedUserInfo"></div>
+	</div>
+
+
+	<article>
+		<h3 th:text="#{aside.h3}">Sponsors</h3>
+		<ul>
+			<li><a href="http://www.uniovi.es/" th:text="#{aside.uniovi}"></a></li>
+			<li><a href="http://www.ingenieriainformatica.uniovi.es/" th:text="#{aside.eii}"></a></li>
+			<li><a href="http://www.springsource.org/" th:text="#{aside.spring}"> </a></li>
+			<li><a href="http://www.apache.org" th:text="#{aside.apache}" ></a></li>
+			<li><a href="http://www.jboss.org/" th:text="#{aside.jboss}"></a></li>
+			<li><a href="http://www.eclipse.org/eclipse/" th:text="#{aside.eclipse}"></a></li>
+		</ul>
+	</article>
+	
+	<article>
+		<h3>Author</h3>
+		<ul>
+			<li><a href="http://www.linkedin.com/in/armandorv" th:text="#{aside.armando.linkedin}"></a></li>
+			<li><a href="http://www.facebook.com/armando.ramirezvila" th:text="#{aside.armando.facebook}"></a></li>
+			<li><a href="https://twitter.com/armandorvila" th:text="#{aside.armando.twitter}"></a></li>
+			<li><a href="https://community.jboss.org/people/armandorv" th:text="#{aside.armando.jboss}"></a></li>
+		</ul>
+	</article>
+</aside>

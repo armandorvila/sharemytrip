@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:cloud="http://schema.cloudfoundry.org/spring" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security 
+		http://www.springframework.org/schema/security/spring-security-3.1.xsd
+		http://schema.cloudfoundry.org/spring
+        http://schema.cloudfoundry.org/spring/cloudfoundry-spring.xsd">
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:security.properties</value>
+			</list>
+		</property>
+		<property name="placeholderPrefix" value="security{" />
+	</bean>
+
+	<security:http use-expressions="true">
+		<security:access-denied-handler
+			error-page="/contact" />
+
+		<security:intercept-url pattern="/**" />
+		<security:intercept-url pattern="/myTrips"
+			access="hasRole('ROLE_TRAVELER')" />
+
+		<security:intercept-url pattern="/newTrip"
+			access="hasRole('ROLE_TRAVELER')" />
+
+		<security:intercept-url pattern="/promote"
+			access="hasRole('ROLE_TRAVELER')" />
+
+		<security:form-login login-page="/loginPage"
+			default-target-url="/home" authentication-failure-url="/loginError"
+			login-processing-url="/login" always-use-default-target="false" />
+
+		<security:logout invalidate-session="true"
+			logout-success-url="/home" logout-url="/logout" />
+
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service
+				data-source-ref="securityDataSource" users-by-username-query="security{sql.users}"
+				authorities-by-username-query="security{sql.roles}" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+ <cloud:data-source id="securityDataSource" />
+
+<!--  	<bean id="securityDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="security{driver.name}" />
+		<property name="url" value="security{url}" />
+		<property name="username" value="security{user}" />
+		<property name="password" value="security{pass}" />
+	</bean> -->
+</beans>
