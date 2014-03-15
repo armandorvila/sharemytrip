@@ -6,12 +6,11 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 
 import com.armandorv.sharemytrip.business.model.Credentials;
-import com.armandorv.sharemytrip.business.test.SpringDBUnitTest;
+import com.armandorv.sharemytrip.business.test.SpringDBUnitCase;
 
-public class CredentialsRepositoryTest extends SpringDBUnitTest{
+public class CredentialsRepositoryTest extends SpringDBUnitCase{
 
 	private Logger log = Logger.getLogger(CredentialsRepositoryTest.class);
 
@@ -19,7 +18,6 @@ public class CredentialsRepositoryTest extends SpringDBUnitTest{
 	private CredentialsRepository credentialsRepository;
 
 	@Test
-	@Rollback(value = false)
 	public void testSave() {
 		Credentials crdentials = credentialsRepository.save(credentials());
 		Assert.assertNotNull(crdentials);
@@ -31,14 +29,12 @@ public class CredentialsRepositoryTest extends SpringDBUnitTest{
 	}
 
 	@Test
-	@Rollback(value = false)
 	public void testFindAll() {
 		Iterable<Credentials> crdentials = credentialsRepository.findAll();
 		Assert.assertNotNull(crdentials);
 	}
 
 	@Test
-	@Rollback(value = false)
 	public void testDelete() {
 		if (credentialsRepository.count() > 0) {
 			credentialsRepository.delete(credentialsRepository.findAll()

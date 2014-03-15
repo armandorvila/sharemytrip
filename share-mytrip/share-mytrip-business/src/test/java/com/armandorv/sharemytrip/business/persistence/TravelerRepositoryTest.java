@@ -7,12 +7,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 
 import com.armandorv.sharemytrip.business.model.Traveler;
-import com.armandorv.sharemytrip.business.test.SpringDBUnitTest;
+import com.armandorv.sharemytrip.business.test.SpringDBUnitCase;
 
-public class TravelerRepositoryTest extends SpringDBUnitTest{
+public class TravelerRepositoryTest extends SpringDBUnitCase{
 
 	private Logger log = Logger.getLogger(TravelerRepositoryTest.class);
 
@@ -30,14 +29,12 @@ public class TravelerRepositoryTest extends SpringDBUnitTest{
 	}
 
 	@Test
-	@Rollback(value = false)
 	public void testFindAll() {
 		Iterable<Traveler> all = userRepository.findAll();
 		Assert.assertNotNull(all);
 	}
 
 	@Test
-	@Rollback(value = false)
 	public void testSave() {
 
 		Assert.assertNotNull(traveler);
@@ -47,7 +44,6 @@ public class TravelerRepositoryTest extends SpringDBUnitTest{
 	}
 
 	@Test
-	@Rollback(value = false)
 	public void testDelete() {
 		Assert.assertNotNull(traveler);
 		if (userRepository.count() > 0) {

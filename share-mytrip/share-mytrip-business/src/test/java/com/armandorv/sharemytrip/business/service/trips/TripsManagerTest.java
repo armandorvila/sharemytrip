@@ -3,19 +3,19 @@ package com.armandorv.sharemytrip.business.service.trips;
 import java.text.ParseException;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 
 import com.armandorv.sharemytrip.business.model.Place;
 import com.armandorv.sharemytrip.business.model.Price;
 import com.armandorv.sharemytrip.business.model.Traveler;
 import com.armandorv.sharemytrip.business.model.Trip;
 import com.armandorv.sharemytrip.business.service.travelers.TravelersManager;
-import com.armandorv.sharemytrip.business.test.SpringDBUnitTest;
+import com.armandorv.sharemytrip.business.test.SpringDBUnitCase;
 import com.armandorv.sharemytrip.business.test.TestUtils;
 
-public class TripsManagerTest extends SpringDBUnitTest{
+public class TripsManagerTest extends SpringDBUnitCase{
 
 	@Autowired
 	private TripsManager tripsManager;
@@ -30,6 +30,7 @@ public class TripsManagerTest extends SpringDBUnitTest{
 	private Traveler juanvr;
 
 	
+	@Before
 	public void setUp() throws ParseException {
 		armandorv = travelersManager.getTraveler("armandorv");
 		juanvr = travelersManager.getTraveler("juanvr");
@@ -58,7 +59,7 @@ public class TripsManagerTest extends SpringDBUnitTest{
 	}
 
 	@Test
-	@Rollback(false)
+
 	public void testCreateTravel() {
 		tripsManager.createTrip(armandorv, trip);
 	}
@@ -71,7 +72,6 @@ public class TripsManagerTest extends SpringDBUnitTest{
 	}
 
 	@Test
-	@Rollback(false)
 	public void joinToTrip() {
 		Iterable<Trip> trips = tripsManager.getPromotedTrips(armandorv);
 		trips.iterator().hasNext();// The one is already joined.

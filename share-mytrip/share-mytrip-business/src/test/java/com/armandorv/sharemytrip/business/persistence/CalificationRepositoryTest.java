@@ -5,14 +5,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 
 import com.armandorv.sharemytrip.business.model.Calification;
 import com.armandorv.sharemytrip.business.model.Traveler;
 import com.armandorv.sharemytrip.business.model.Trip;
-import com.armandorv.sharemytrip.business.test.SpringDBUnitTest;
+import com.armandorv.sharemytrip.business.test.SpringDBUnitCase;
 
-public class CalificationRepositoryTest extends SpringDBUnitTest{
+public class CalificationRepositoryTest extends SpringDBUnitCase{
 
 	private Logger log = Logger.getLogger(CalificationRepositoryTest.class);
 
@@ -39,7 +38,6 @@ public class CalificationRepositoryTest extends SpringDBUnitTest{
 	}
 
 	@Test
-	@Rollback(value = false)
 	public void testSave() {
 		Calification crdentials = calificationRepository.save(calification());
 		Assert.assertNotNull(crdentials);
@@ -51,14 +49,12 @@ public class CalificationRepositoryTest extends SpringDBUnitTest{
 	}
 
 	@Test
-	@Rollback(value = false)
 	public void testFindAll() {
 		Iterable<Calification> crdentials = calificationRepository.findAll();
 		Assert.assertNotNull(crdentials);
 	}
 
 	@Test
-	@Rollback(value = false)
 	public void testDelete() {
 		if (calificationRepository.count() > 0) {
 			calificationRepository.delete(calificationRepository.findAll()

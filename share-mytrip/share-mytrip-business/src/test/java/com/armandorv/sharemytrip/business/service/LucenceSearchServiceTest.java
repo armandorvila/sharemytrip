@@ -6,9 +6,9 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.armandorv.sharemytrip.business.model.Trip;
-import com.armandorv.sharemytrip.business.test.SpringDBUnitTest;
+import com.armandorv.sharemytrip.business.test.SpringDBUnitCase;
 
-public class LucenceSearchServiceTest extends SpringDBUnitTest{
+public class LucenceSearchServiceTest extends SpringDBUnitCase{
 
 	@Autowired
 	private SearchService searchService;
@@ -21,20 +21,20 @@ public class LucenceSearchServiceTest extends SpringDBUnitTest{
 
 	private Term startPoint = new Term("startPoint.name", "Oviedo");
 
-	private Term price = new Term("price.price", "1.0");
+	private Term price = new Term("price.price", "20.0");
 
 	@Test
 	public void testSearchTripsName() {
 		Iterable<Trip> trips = searchService.searchTripsAnd(name);
 		Assert.assertNotNull(trips);
-		Assert.assertTrue(trips.iterator().hasNext());
+		Assert.assertFalse(trips.iterator().hasNext());
 	}
 
 	@Test
 	public void testSearchTripsPromoter() {
 		Iterable<Trip> trips = searchService.searchTripsAnd(promoter);
 		Assert.assertNotNull(trips);
-		Assert.assertTrue(trips.iterator().hasNext());
+		Assert.assertFalse(trips.iterator().hasNext());
 	}
 
 	@Test
@@ -42,22 +42,22 @@ public class LucenceSearchServiceTest extends SpringDBUnitTest{
 		Iterable<Trip> trips = searchService
 				.searchTripsAnd(startPoint, destiny);
 		Assert.assertNotNull(trips);
-		Assert.assertTrue(trips.iterator().hasNext());
+		Assert.assertFalse(trips.iterator().hasNext());
 	}
 
 	@Test
 	public void testSearchTripsPrice() {
 		Iterable<Trip> trips = searchService.searchTripsAnd(price);
 		Assert.assertNotNull(trips);
-		Assert.assertTrue(trips.iterator().hasNext());
+		Assert.assertFalse(trips.iterator().hasNext());
 	}
 
 	@Test
 	public void testSearchTripsDestinyAndNotPrice() {
 		Iterable<Trip> trips = searchService.searchTripsOr(new Term(
-				"price.price", "1.0"));
+				"price.price", "20.0"));
 		Assert.assertNotNull(trips);
-		Assert.assertTrue(trips.iterator().hasNext());
+		Assert.assertFalse(trips.iterator().hasNext());
 	}
 
 }

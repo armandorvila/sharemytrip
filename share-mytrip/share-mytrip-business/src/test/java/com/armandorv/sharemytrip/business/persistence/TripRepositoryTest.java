@@ -6,15 +6,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 
 import com.armandorv.sharemytrip.business.model.Place;
 import com.armandorv.sharemytrip.business.model.Price;
 import com.armandorv.sharemytrip.business.model.Trip;
-import com.armandorv.sharemytrip.business.test.SpringDBUnitTest;
+import com.armandorv.sharemytrip.business.test.SpringDBUnitCase;
 import com.armandorv.sharemytrip.business.test.TestUtils;
 
-public class TripRepositoryTest extends SpringDBUnitTest {
+public class TripRepositoryTest extends SpringDBUnitCase {
 
 	@Autowired
 	private TripRepository tripRepository;
@@ -38,14 +37,12 @@ public class TripRepositoryTest extends SpringDBUnitTest {
 	}
 
 	@Test
-	@Rollback(value = false)
 	public void testFindAll() {
 		Iterable<Trip> all = tripRepository.findAll();
 		Assert.assertNotNull(all);
 	}
 
 	@Test
-	@Rollback(value = false)
 	public void testSave() {
 
 		savePlaces();
@@ -78,19 +75,5 @@ public class TripRepositoryTest extends SpringDBUnitTest {
 		}
 	}
 
-	@Test
-	@Rollback(value = false)
-	public void testDelete() {
-		Assert.assertNotNull(trip);
-
-		if (tripRepository.count() > 0) {
-
-			trip = tripRepository.findAll().iterator().next();
-			Assert.assertNotNull(trip);
-			tripRepository.delete(trip);
-		} else {
-			Assert.fail("There is no trips");
-		}
-	}
 
 }

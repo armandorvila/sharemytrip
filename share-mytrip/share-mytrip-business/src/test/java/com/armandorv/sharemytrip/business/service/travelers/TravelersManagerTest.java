@@ -5,15 +5,14 @@ import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 
 import com.armandorv.sharemytrip.business.model.Credentials;
 import com.armandorv.sharemytrip.business.model.Traveler;
 import com.armandorv.sharemytrip.business.persistence.CredentialsRepository;
 import com.armandorv.sharemytrip.business.persistence.TravelerRepository;
-import com.armandorv.sharemytrip.business.test.SpringDBUnitTest;
+import com.armandorv.sharemytrip.business.test.SpringDBUnitCase;
 
-public class TravelersManagerTest extends SpringDBUnitTest {
+public class TravelersManagerTest extends SpringDBUnitCase {
 
 	@Autowired
 	private TravelersManager travelersManager;
@@ -35,10 +34,9 @@ public class TravelersManagerTest extends SpringDBUnitTest {
 			.randomUUID().toString());
 
 	@Test
-	@Rollback(false)
 	public void testNewTraveler() {
-		travelersManager.newTraveler(saul, credentials("isern"));
-		travelersManager.newTraveler(juan, credentials("juanic"));
+		travelersManager.newTraveler(saul, credentials(UUID.randomUUID().toString()));
+		travelersManager.newTraveler(juan, credentials(UUID.randomUUID().toString()));
 	}
 
 	private Credentials credentials(String username) {
