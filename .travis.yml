@@ -1,4 +1,8 @@
 language: java
+
 jdk:
-  - oraclejdk7
-script: sh -c 'cd share-mytrip' && mvn clean install 
+	 - oraclejdk7
+
+before_script: cd share-mytrip
+ 
+script:  mvn clean install 
