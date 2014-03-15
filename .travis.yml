@@ -1,4 +1,4 @@
 language: java
 jdk:
   - oraclejdk7
-script: 'cd test' && mvn clean install 
+script: 'cd share-mytrip' && mvn clean install 
