@@ -1,9 +1,8 @@
 language: java
 jdk:
   - oraclejdk7
+
 before_install:
  - cd share-mytrip
 
-before_script:
- - cd share-mytrip
 script: mvn clean install 
